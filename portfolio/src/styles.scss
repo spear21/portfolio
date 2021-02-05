@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+      margin:0;
+      padding:0;
+      height:100%;
+  }
+  
+  .container {
+    min-height: 650px;
+    background-image: url("/assets/images/self_portrait.png");
+    background-position: 100% 100%;
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
