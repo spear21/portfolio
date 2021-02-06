@@ -1,25 +1,15 @@
 
-pipeline {
-  agent {
-    docker { image 'node:latest' }
+node{
+  stage ('Checkout SCM'){
+    git branch: 'master', url: 'git@github.com/spear21/portfolio.git'
   }
-  stages {
+ stages {
     stage('Install') {
-      steps { sh 'npm install' }
-    }
-
-    stage('Test') {
-      parallel {
-        stage('Static code analysis') {
-            steps { sh 'npm run-script lint' }
-        }
-        stage('Unit tests') {
-            steps { sh 'npm run-script test' }
-        }
-      }
+       sh 'npm install' 
     }
 
     stage('Build') {
-      steps { sh 'npm run-script build' }
+      sh 'npm run build:port'
     }
-  }}
+}
+ 
