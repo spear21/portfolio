@@ -1,14 +1,12 @@
-pipeline {
-  agent any
-  tools {nodejs "node" }
-  stages {
+node {
+ 
     stage('Cloning Git') {
       steps {
-        git url: 'git@github.com:spear21/portfolio.git',
+        git branch: 'master', url: 'https://github.com/spear21/portfolio.git',
            
       }
     }
-    stage('Build') {
+    stage('Install modules') {
        steps {
          sh 'npm install'
        }
@@ -18,5 +16,14 @@ pipeline {
         sh 'npm test'
       }
     }
-  }
+    stage('Build') {
+      steps {
+        sh 'npm run build --prod'
+      }
+    }
+    stage('COpy') {
+      steps {
+        sh 'cp -a /var/lib/jenkins/workspace/portfolio pipeline/dist/portfolio/. /var/www/portfolio pipeline/html/'
+      }
+    }
 }
