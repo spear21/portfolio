@@ -1,9 +1,7 @@
 node {
- 
     stage('Cloning Git') {
       steps {
-        git branch: 'master', url: 'https://github.com/spear21/portfolio.git',
-           
+        git branch: 'master', url: 'https://github.com/spear21/portfolio.git'
       }
     }
     stage('Install modules') {
