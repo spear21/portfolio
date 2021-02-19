@@ -32,13 +32,13 @@ node () {
 }
 
 node('build-serve-one') {
-    echo 'Unstash'
-    unstash 'buildArtifacts'
-    echo 'Artifacts Copied'
+    // echo 'Unstash'
+    // unstash 'buildArtifacts'
+    // echo 'Artifacts Copied'
 
     echo 'Copy'
     // sh 'yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz'
-    sh 'yes | sudo cp -R dist/ /var/www/html'
+    sh 'yes | sudo cp -R dist/portfolio/ /var/www/html'
     echo ' Complete'
 
 }
