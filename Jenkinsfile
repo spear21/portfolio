@@ -19,7 +19,7 @@ node () {
         
     }
     stage('Package Build') {
-    sh 'tar -zcvf bundle.tar.gz dis/portfolio'
+    sh 'tar -zcvf bundle.tar.gz dis/portfolio/'
     }
     stage('Artifact Creation') {
         fingerprint 'bundle.tar.gz'
