@@ -1,17 +1,43 @@
-node {
+node () {
     stage('Cloning Git') {
-        git branch: 'master', url: 'https://github.com/spear21/portfolio.git'
+        // git branch: 'master', url: 'https://github.com/spear21/portfolio.git'
+        checkout scm
     }
     stage('Install modules') {
-         sh 'npm install'
+        nodejs('nodejs'){
+            sh 'npm install'
+            echo "Modules Installed"
+        }
+         
     }
-    stage('Test') {
-        sh 'npm test'
-    }
+  
     stage('Build') {
-        sh 'npm run build --prod'
+        nodejs('nodejs'){   
+            sh 'npm run build --prod'
+            echo "Build Complete"
+        }
+        
     }
-    stage('Copy') {
-    'cp -a /var/lib/jenkins/workspace/portfolio pipeline/dist/portfolio/. /var/www/portfolio pipeline/html/'
+    stage('Package Build') {
+    sh 'tar -zcvf bundle.tar.gz dis/'
     }
+    stage('Artifact Creation') {
+        fingerprint 'bundle.tar.gz'
+        archiveArtifacts 'bundle.tar.gz'
+        echo 'Artifacts Created'
+    }
+    stage('Stash Changes') {
+        stash allowEmpty: true, include: 'bundle.tar.gz', name: 'buildArtifacts'
+    }
+}
+
+node('build-server-one') {
+    echo 'Unstash'
+    unstash 'buildArtifacts'
+    echo 'Artifacts Copied'
+
+    echo 'Copy'
+    sh 'yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz'
+    echo ' Complete'
+
 }
