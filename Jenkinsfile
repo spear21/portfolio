@@ -1,5 +1,5 @@
 node () {
-    stage('Cloning Git') {
+    stage('Get Git') {
         // git branch: 'master', url: 'https://github.com/spear21/portfolio.git'
         checkout scm
     }
