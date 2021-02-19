@@ -31,7 +31,7 @@ node () {
     // }
 }
 
-node('build-server-one') {
+node('build-serve-one') {
     echo 'Unstash'
     unstash 'buildArtifacts'
     echo 'Artifacts Copied'
