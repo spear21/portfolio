@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "./scss/library.scss";
+@import "./scss/mixins.scss";
+@import "./scss/reuseable.scss";
+@import "./scss/nav.scss";
 * {
     box-sizing: border-box;
   }
@@ -9,7 +12,7 @@
       padding:0;
       height:100%;
   }
-  
+
   .container {
     min-height: 650px;
     background-image: url("/assets/images/self_portrait.png");

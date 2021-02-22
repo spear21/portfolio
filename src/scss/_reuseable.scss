@@ -1,0 +1,42 @@
+@import "./_library.scss";
+@import "./_mixins.scss";
+
+.clear {
+  clear: both;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+
+/** Grids **/
+.col-1-small {
+  width: columns(1, 6);
+}
+.col-2-small {
+  width: columns(2);
+  margin-right: gutter(2);
+}
+.col-4-small {
+  width: columns(1, 4);
+}
+
+/** lists **/
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+/** Text **/
+.txt-center {
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+@import "./reuseable.scss";
+@import "./_library.scss";
+@import "./_mixins.scss";
+
+nav {
+  height: 3rem;
+  background-color: aquamarine;
+}
+
+nav .main {
+  overflow: hidden;
+  display: block;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
