@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:port": "ng build --prod"
+    "build:port": "ng build --prod",
+    "compodoc": "npm compodoc src -p src/tsconfig.json"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "@angular-devkit/build-angular": "~0.1101.1",
     "@angular/cli": "~11.1.1",
     "@angular/compiler-cli": "~11.1.0",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
