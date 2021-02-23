@@ -21,9 +21,9 @@ node () {
         }
 
     }
-    stage('Package Build') {
-    sh 'tar -zcvf bundle.tar.gz'
-    }
+    // stage('Package Build') {
+    // sh 'tar -zcvf bundle.tar.gz'
+    // }
     // stage('Artifact Creation') {
     //     fingerprint 'bundle.tar.gz'
     //     archiveArtifacts 'bundle.tar.gz'
