@@ -1,6 +1,5 @@
 node () {
     stage('Get Git') {
-        // git branch: 'master', url: 'https://github.com/spear21/portfolio.git'
         checkout scm
     }
     stage('Install modules') {
@@ -8,19 +7,23 @@ node () {
             sh 'npm install'
             echo "Modules Installed"
         }
-         
+
     }
-  
+    stage('Test'){
+      nodejs('nodejs'){
+        echo "Test Complete"
+      }
+    }
     stage('Build') {
-        nodejs('nodejs'){   
+        nodejs('nodejs'){
             sh 'npm run build'
             echo "Build Complete"
         }
-        
+
     }
-    // stage('Package Build') {
-    // sh 'tar -zcvf bundle.tar.gz dis/portfolio/'
-    // }
+    stage('Package Build') {
+    sh 'tar -zcvf bundle.tar.gz dis/'
+    }
     // stage('Artifact Creation') {
     //     fingerprint 'bundle.tar.gz'
     //     archiveArtifacts 'bundle.tar.gz'
