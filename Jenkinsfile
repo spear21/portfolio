@@ -22,7 +22,7 @@ node () {
 
     }
     stage('Package Build') {
-    sh 'tar -zcvf bundle.tar.gz dis'
+    sh 'tar -zcvf bundle.tar.gz'
     }
     // stage('Artifact Creation') {
     //     fingerprint 'bundle.tar.gz'
